@@ -1,0 +1,203 @@
+$white: hsl(0, 0%, 100%);
+$stone-100: hsl(30, 54%, 90%);
+$stone-150: hsl(30, 18%, 87%);
+$stone-600: hsl(30, 10%, 34%);
+$stone-900: hsl(24, 5%, 18%);
+$brown-800: hsl(14, 45%, 36%);
+$ros-800: hsl(332, 51%, 32%);
+$rose-50: hsl(330, 100%, 98%);
+
+@mixin media {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: $stone-150;
+}
+
+p {
+  margin-top: 1.75rem;
+}
+
+p, li {
+  font-family: Outfit, sans-serif;
+  color: $stone-900;
+}
+
+li {
+  margin-top: .5rem;
+  margin-left: 1.25rem;
+  padding-left: 1.75rem;
+  line-height: 1.7rem;
+  font-size: .955rem;
+
+  @include media {
+    font-size: inherit;
+  }
+}
+
+.content {
+  max-width: 736px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $white;
+  overflow: hidden;
+
+  @include media {
+    margin-top: 7.6875rem;
+    margin-bottom: 7.6875rem;
+    border-radius: 1rem;
+  }
+
+  .recipe-image {
+    max-width: 100%;
+    min-width: calc(100% + 4rem);
+    margin-left: -2rem;
+
+    @include media {
+      min-width: 100%;
+      margin-top: 2.5rem;
+      border-radius: 0.5rem;
+      margin-left: 0;
+    }
+  }
+
+  article {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    
+    @include media {
+      margin-left: 2.5rem;
+      margin-right: 2.5rem;
+      border-radius: 0.5rem;
+    }
+
+    .section-end-line {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid $stone-100;
+    }
+
+    .recipe-title {
+      margin-top: 2.625rem;
+      color: $stone-900;
+      font-size: 2.215rem;
+      font-family: 'Young Serif', sans-serif;
+      line-height: 2.2rem;
+      font-weight: 400;
+
+      @include media {
+        font-size: 2.5rem;
+      }
+    }
+
+    .description {
+      font-size: .995rem;
+      line-height: 1.5rem;
+
+      @include media {
+        font-size: inherit;
+      }
+    }
+
+    .recipe-sections-header {
+      margin-top: 2.1875rem;
+      color: $brown-800;
+      font-size: 1.85rem !important ;
+      font-weight: 400;
+      font-family: 'Young Serif', sans-serif;
+    }
+
+    .preparation-time {
+      margin-top: 2rem;
+      padding: 1.75rem;
+      background-color: $rose-50;
+      border-radius: 0.5rem;
+
+      .preparation-time-title {
+        font-size: 1.35rem;
+        color: $ros-800;
+        font-family: Outfit, sans-serif;
+        font-weight: 400;
+      }
+
+      .preparation-time-list {
+        li::marker {
+          font-weight: 700;
+          color: $brown-800;
+          font-family: Outfit, sans-serif;
+        }
+
+        .part {
+          font-weight: 700;
+          color: $stone-600;
+        }
+      }
+    }
+
+    .ingredients-list, .instructions-list {
+      margin-top: 1rem;
+    }
+
+    .ingredients-list {
+      li::marker {
+        display: inline-block;
+        font-size: 0.75rem;
+        color: $brown-800;
+      }
+    }
+
+    .instructions-list {
+      list-style-type: decimal; 
+
+      li {
+        margin-left: 1.7rem;
+      };
+
+      li::marker {
+        font-weight: 700;
+        color: $brown-800;
+        font-family: Outfit, sans-serif;
+      }
+
+      .instruction {
+        font-weight: 700;
+        color: $stone-600;
+      }
+    }
+
+    .nutrition-list {
+      margin-top: 2rem;
+      list-style: none;
+         
+       li{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-bottom: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $stone-100;
+        }
+
+        span {
+          color: $brown-800;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
